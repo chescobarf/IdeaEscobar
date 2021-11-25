@@ -1,6 +1,7 @@
 import React from "react";
+import CartWidget from "../CartWidget/CartWidget";
 
-function Navbar({ children }) {
+function Navbar() {
   return (
     <nav className="h-20 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 w-full grid content-center">
       <div className="container mx-auto flex justify-between items-center">
@@ -38,7 +39,9 @@ function Navbar({ children }) {
               Marcas
             </a>
           </div>
-          <div>{children}</div>
+          <div>
+            <CartWidget />
+          </div>
         </div>
       </div>
     </nav>
