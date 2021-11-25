@@ -1,6 +1,6 @@
 import React from "react";
 
-function Navbar() {
+function Navbar({ children }) {
   return (
     <nav className="h-20 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 w-full grid content-center">
       <div className="container mx-auto flex justify-between items-center">
@@ -38,6 +38,7 @@ function Navbar() {
               Marcas
             </a>
           </div>
+          <div>{children}</div>
         </div>
       </div>
     </nav>
