@@ -1,0 +1,19 @@
+import React from "react";
+
+function Loading() {
+  return (
+    <div class="flex justify-center items-center">
+      <div
+        class="
+      animate-spin
+      rounded-full
+      h-32
+      w-32
+      border-t-2 border-b-2 border-indigo-500
+    "
+      ></div>
+    </div>
+  );
+}
+
+export default Loading;
