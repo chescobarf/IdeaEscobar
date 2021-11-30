@@ -22,7 +22,7 @@ function ItemCount({ stock, initial }) {
         <Button text="-" onClick={onReduce} />
         <Button text="+" onClick={onAdd} />
       </div>
-      <Button text="Agregar al carrito" on />
+      <Button text="Agregar al carrito" />
     </div>
   );
 }
