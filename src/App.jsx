@@ -2,6 +2,7 @@ import Navbar from "./layout/Navbar/Navbar";
 import Container from "./layout/Container/Container";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import Banner from "./layout/Banner/Banner";
+import ItemCount from "./components/ItemCount/ItemCount";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       />
       <Container>
         <ItemListContainer />
+        <ItemCount initial={0} stock={10} />
       </Container>
     </div>
   );

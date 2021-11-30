@@ -2,9 +2,9 @@ import React from "react";
 
 function Loading() {
   return (
-    <div class="flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <div
-        class="
+        className="
       animate-spin
       rounded-full
       h-32
