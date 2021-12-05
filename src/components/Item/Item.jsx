@@ -7,7 +7,9 @@ function Item({ data }) {
       <a href="/">
         <img className="w-full" src={data.img} alt="" />
         <div className="px-2">
-          <p className="text-gray-600 my-2">Puma | Mujer</p>
+          <p className="text-gray-600 my-2">
+            {data.brand} | {data.genre}
+          </p>
           <p className="text-black-600 font-medium">{data.name}</p>
           <div className="precios flex gap-2 items-center">
             <span className="text-black-400 text-sm line-through">
