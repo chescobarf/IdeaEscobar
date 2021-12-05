@@ -2,6 +2,7 @@ import Navbar from "./layout/Navbar/Navbar";
 import Container from "./layout/Container/Container";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import Banner from "./layout/Banner/Banner";
+import Footer from "./layout/Footer/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Container>
         <ItemListContainer />
       </Container>
+      <Footer />
     </div>
   );
 }
