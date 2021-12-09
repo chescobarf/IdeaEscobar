@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Item from "../Item/Item";
 import Loading from "../Loading/Loading";
 
@@ -8,7 +9,9 @@ function ItemList({ items }) {
       {items ? (
         <div className="grid w-full grid-cols-3 gap-4">
           {items.map((item) => (
-            <Item key={item.id} data={item} />
+            <Link to={`/product/${item.id}`}>
+              <Item key={item.id} data={item} />
+            </Link>
           ))}
         </div>
       ) : (

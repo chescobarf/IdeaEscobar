@@ -6,7 +6,7 @@ function ItemListContainer() {
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(products);
-    }, 2500);
+    }, 700);
   });
 
   const resolverArray = async () => {
@@ -28,7 +28,6 @@ function ItemListContainer() {
 
   return (
     <div className="w-full text-center mt-4 mb-4">
-      <h1>Aqui debe ir el catalogo </h1>
       <ItemList items={state} />
     </div>
   );

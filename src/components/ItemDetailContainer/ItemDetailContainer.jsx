@@ -4,10 +4,12 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from "../Loading/Loading";
 
 function ItemDetailContainer({ id }) {
+  const [state, setstate] = useState(null);
+
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(products[id]);
-    }, 2000);
+      resolve(products[id - 1]);
+    }, 500);
   });
 
   const getItem = async () => {
@@ -21,15 +23,13 @@ function ItemDetailContainer({ id }) {
     }
   };
 
-  const [state, setstate] = useState(null);
   useEffect(() => {
     getItem();
   });
   return (
     <div>
       {state ? (
-        <div className="w-full text-center mt-4 mb-4">
-          <h1>Product Detail Page</h1>
+        <div className="w-full text-center mt-0 mb-0">
           <ItemDetail data={state} />
         </div>
       ) : (
