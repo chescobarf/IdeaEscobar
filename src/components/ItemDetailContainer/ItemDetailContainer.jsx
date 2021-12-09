@@ -21,8 +21,7 @@ function ItemDetailContainer({ id }) {
     }
   };
 
-  const [state, setstate] = useState(null);
-
+  const [state, setstate] = useState([]);
   useEffect(() => {
     getItem();
   });
