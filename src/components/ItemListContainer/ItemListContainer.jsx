@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { products } from "../../constants/products";
+import NoProducts from "../../views/NoProducts";
+import Loading from "../Loading/Loading";
 
 function ItemListContainer({ categoryName }) {
   let promise = new Promise((resolve, reject) => {
@@ -29,13 +31,38 @@ function ItemListContainer({ categoryName }) {
 
   useEffect(() => {
     resolverArray();
+    console.log(state);
   });
 
+  // state ? (
+  //   <div className="w-full text-center mt-4 mb-4">
+  //     <ItemList items={state} />
+  //   </div>
+  // ) : (
+  //   <NoProducts />
+  // );
+
   return (
-    <div className="w-full text-center mt-4 mb-4">
-      <ItemList items={state} />
+    <div>
+      {state ? (
+        state.length != [] ? (
+          <div className="w-full text-center mt-4 mb-4">
+            <ItemList items={state} />
+          </div>
+        ) : (
+          <NoProducts />
+        )
+      ) : (
+        <Loading />
+      )}
     </div>
   );
+
+  // return (
+  //   <div className="w-full text-center mt-4 mb-4">
+  //     <ItemList items={state} />
+  //   </div>
+  // );
 }
 
 export default ItemListContainer;
