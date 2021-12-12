@@ -21,7 +21,7 @@ export const products = [
         id: 3,
         name: "NombreZapatillas",
         brand: "Puma",
-        genre: "Hombre",
+        genre: "Mujer",
         oldPrice: 29990,
         newPrice: 25990,
         img: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/373309/04/sv01/fnd/CHL/w/1000/h/1000/bg/255,255,255",
