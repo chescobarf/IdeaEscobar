@@ -7,6 +7,7 @@ import Cart from "../views/Cart";
 import Checkout from "../views/Checkout";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
+import CategoryPage from "../views/CategoryPage";
 
 function Router() {
   return (
@@ -15,6 +16,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/*" element={<Error />} />

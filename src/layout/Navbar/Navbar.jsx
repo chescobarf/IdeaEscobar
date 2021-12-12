@@ -16,12 +16,12 @@ function Navbar() {
           {categories.map((category) => {
             return (
               <div key={category.id}>
-                <a
-                  href="/"
+                <NavLink
+                  to={`category/${category.name}`}
                   className="text-white font-semibold p-1 border-b-2 border-transparent hover:border-white"
                 >
                   {category.name}
-                </a>
+                </NavLink>
               </div>
             );
           })}

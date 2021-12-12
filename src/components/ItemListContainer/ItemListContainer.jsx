@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { products } from "../../constants/products";
 
-function ItemListContainer() {
+function ItemListContainer({ categoryName }) {
   let promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 700);
+    categoryName
+      ? setTimeout(() => {
+          const response = products.filter((e) => e.genre == categoryName);
+          resolve(response);
+        }, 700)
+      : setTimeout(() => {
+          resolve(products);
+        }, 700);
   });
 
   const resolverArray = async () => {
