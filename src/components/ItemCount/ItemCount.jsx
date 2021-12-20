@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, handleCart }) {
   const [initalNumber, setInitialNumber] = useState(initial);
 
   const onAdd = () => {
@@ -9,6 +9,7 @@ function ItemCount({ stock, initial }) {
       ? setInitialNumber(initalNumber)
       : setInitialNumber(initalNumber + 1);
   };
+
   const onReduce = () => {
     initalNumber > 0
       ? setInitialNumber(initalNumber - 1)
@@ -22,7 +23,10 @@ function ItemCount({ stock, initial }) {
         <Button text="-" onClick={onReduce} />
         <Button text="+" onClick={onAdd} />
       </div>
-      <Button text="Agregar al carrito" />
+      <Button
+        text="Agregar al carrito"
+        onClick={() => handleCart(initalNumber)}
+      />
     </div>
   );
 }

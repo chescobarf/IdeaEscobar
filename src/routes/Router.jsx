@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../views/Home";
-import ProductDetailPage from "../views/PDP";
+import ProductDetailPage from "../views/ProductDetailPage";
 import Error from "../views/Error";
 import Cart from "../views/Cart";
 import Checkout from "../views/Checkout";
