@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
+import { CartConsumer } from "../../context/CartProvider";
 
-function ItemCount({ stock, initial, handleCart }) {
+function ItemCount({ stock, initial }) {
   const [initalNumber, setInitialNumber] = useState(initial);
+
+  const { handleCart } = CartConsumer();
 
   const onAdd = () => {
     initalNumber === stock
