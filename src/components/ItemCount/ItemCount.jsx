@@ -26,10 +26,19 @@ function ItemCount({ stock, initial, data }) {
         <Button text="-" onClick={onReduce} />
         <Button text="+" onClick={onAdd} />
       </div>
-      <Button
-        text="Agregar al carrito"
-        onClick={() => handleCart(initalNumber, data)}
-      />
+
+      {initalNumber >= 1 ? (
+        <Button
+          text="Agregar al carrito"
+          onClick={() => handleCart(initalNumber, data)}
+        />
+      ) : (
+        <Button
+          text="Agregar al carrito"
+          onClick={() => handleCart(initalNumber, data)}
+          isDisabled={true}
+        />
+      )}
     </div>
   );
 }
