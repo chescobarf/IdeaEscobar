@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import { CartConsumer } from "../../context/CartProvider";
 
-function ItemCount({ stock, initial, data }) {
+function ItemCount({ stock, initial, data, styleExtra }) {
   const [initalNumber, setInitialNumber] = useState(initial);
 
   const { handleCart } = CartConsumer();
@@ -22,7 +22,14 @@ function ItemCount({ stock, initial, data }) {
   return (
     <div className="flex flex-col gap-2 ">
       <div className="flex gap-3 items-center justify-center w-full">
-        <div className="font-semibold text-lg">{initalNumber}</div>
+        {styleExtra ? (
+          <div className={`font-semibold text-lg ${styleExtra}`}>
+            {initalNumber}
+          </div>
+        ) : (
+          <div className="font-semibold text-lg">{initalNumber}</div>
+        )}
+
         <Button text="-" onClick={onReduce} />
         <Button text="+" onClick={onAdd} />
       </div>

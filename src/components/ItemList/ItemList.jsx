@@ -9,9 +9,7 @@ function ItemList({ items }) {
       {items ? (
         <div className="grid w-full grid-cols-3 gap-4">
           {items.map((item) => (
-            <Link to={`/product/${item.id}`}>
-              <Item key={item.id} data={item} />
-            </Link>
+            <Item key={item.id} data={item} />
           ))}
         </div>
       ) : (
