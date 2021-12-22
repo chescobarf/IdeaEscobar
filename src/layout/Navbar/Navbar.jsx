@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import CartWidget from "../../components/CartWidget/CartWidget";
 import { categories } from "../../constants/categories";
 import { NavLink } from "react-router-dom";
+import { CartConsumer } from "../../context/CartProvider";
 function Navbar() {
-  const [cart, setCart] = useState(0);
-
+  const { cart } = CartConsumer();
+  console.log(cart);
   return (
     <nav className="h-20 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 w-full grid content-center">
       <div className="container mx-auto flex justify-between items-center">
@@ -28,7 +29,9 @@ function Navbar() {
           <NavLink to="/cart">
             <div className="flex items-center">
               <CartWidget />
-              <span className="text-lg font-semibold text-white">{cart}</span>
+              <span className="text-lg font-semibold text-white">
+                {cart.length}
+              </span>
             </div>
           </NavLink>
         </div>

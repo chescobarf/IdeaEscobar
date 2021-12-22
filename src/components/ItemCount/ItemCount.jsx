@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import { CartConsumer } from "../../context/CartProvider";
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, data }) {
   const [initalNumber, setInitialNumber] = useState(initial);
 
   const { handleCart } = CartConsumer();
@@ -28,7 +28,7 @@ function ItemCount({ stock, initial }) {
       </div>
       <Button
         text="Agregar al carrito"
-        onClick={() => handleCart(initalNumber)}
+        onClick={() => handleCart(initalNumber, data)}
       />
     </div>
   );

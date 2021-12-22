@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetail({ data }) {
-  const [cart, setCart] = useState();
-
-  const handleCart = (quantityToAdd) => {
-    console.log(quantityToAdd);
-    setCart(quantityToAdd);
-  };
-
   return (
     <>
       <div className="flex">
@@ -42,7 +35,7 @@ function ItemDetail({ data }) {
             </h3>
             <h3 className="text-3xl text-indigo-700">${data.newPrice}</h3>
           </div>
-          <ItemCount stock={100} initial={0} handleCart={handleCart} />
+          <ItemCount stock={100} initial={0} data={data} />
         </div>
       </div>
     </>
