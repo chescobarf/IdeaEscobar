@@ -9,7 +9,7 @@ function CategoryPage() {
   const { categoryName } = useParams();
 
   const category = categories.find(function (element) {
-    return element.name == categoryName;
+    return element.name === categoryName;
   });
 
   return (

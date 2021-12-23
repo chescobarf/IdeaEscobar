@@ -8,7 +8,7 @@ function ItemListContainer({ categoryName }) {
   let promise = new Promise((resolve, reject) => {
     categoryName
       ? setTimeout(() => {
-          const response = products.filter((e) => e.genre == categoryName);
+          const response = products.filter((e) => e.genre === categoryName);
           resolve(response);
         }, 700)
       : setTimeout(() => {
@@ -45,7 +45,7 @@ function ItemListContainer({ categoryName }) {
   return (
     <div>
       {state ? (
-        state.length != [] ? (
+        state.length !== [] ? (
           <div className="w-full text-center mt-4 mb-4">
             <ItemList items={state} />
           </div>

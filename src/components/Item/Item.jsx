@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import ItemCount from "../ItemCount/ItemCount";
-import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 function Item({ data }) {

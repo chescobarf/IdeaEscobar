@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CartWidget from "../../components/CartWidget/CartWidget";
 import { categories } from "../../constants/categories";
 import { NavLink } from "react-router-dom";
