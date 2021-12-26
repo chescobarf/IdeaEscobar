@@ -4,8 +4,7 @@ import { categories } from "../../constants/categories";
 import { NavLink } from "react-router-dom";
 import { CartConsumer } from "../../context/CartProvider";
 function Navbar() {
-  const { cart } = CartConsumer();
-  console.log(cart);
+  const { cart, quantityCart } = CartConsumer();
   return (
     <nav className="h-20 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 w-full grid content-center">
       <div className="container mx-auto flex justify-between items-center">
@@ -30,7 +29,7 @@ function Navbar() {
             <div className="flex items-center">
               <CartWidget />
               <span className="text-lg font-semibold text-white">
-                {cart.length}
+                {quantityCart}
               </span>
             </div>
           </NavLink>
