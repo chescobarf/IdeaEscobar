@@ -33,7 +33,7 @@ function Cart() {
             <div className="title text-center border-b-2 border-gray-200 pb-3">
               <h1>Resumen de Compra</h1>
             </div>
-            <div className="extraInfo grid place-content-center grid-cols-1 gap-2">
+            <div className="extraInfo grid place-content-center grid-cols-1 gap-2 border-b-2 border-gray-200 py-3">
               <div className="flex gap-1 items-center font-normal font-sans">
                 <IconContext.Provider value={{ color: "black", size: "2em" }}>
                   <a href="/">
@@ -50,6 +50,10 @@ function Cart() {
                 </IconContext.Provider>
                 <span>Envio Gratis a todo el pais</span>
               </div>
+            </div>
+            <div className="total border-b-2 border-gray-200 py-3 flex justify-between">
+              <p>Total</p>
+              <p>$20.000</p>
             </div>
           </div>
         </div>
