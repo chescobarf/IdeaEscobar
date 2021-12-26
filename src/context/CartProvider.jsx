@@ -20,17 +20,21 @@ function CartProvider({ children }) {
       let arr = cart.find((i) => i.id === data.id);
       arr.quantity = arr.quantity + quantity;
       setCart([...cart]);
+      setQuantityCart(quantityCart + quantity);
     } else {
       let newObj = { ...data, quantity: quantity };
       console.log(newObj);
       setCart([...cart, newObj]);
+      setQuantityCart(quantityCart + quantity);
     }
   };
 
   const removeItem = (itemID) => {
     //Filter de la data y quitarla de carrito
+    const itemToDelete = cart.find((e) => e.id === itemID);
     const newArray = cart.filter((item) => item.id !== itemID);
     setCart(newArray);
+    setQuantityCart(quantityCart - itemToDelete.quantity);
   };
 
   const clearItems = () => {
@@ -45,7 +49,6 @@ function CartProvider({ children }) {
       value={{
         cart,
         quantityCart,
-        handleCart,
         addItem,
         removeItem,
         clearItems,

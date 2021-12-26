@@ -5,7 +5,7 @@ import { CartConsumer } from "../../context/CartProvider";
 function ItemCount({ stock, initial, data, styleExtra }) {
   const [initalNumber, setInitialNumber] = useState(initial);
 
-  const { handleCart } = CartConsumer();
+  const { removeItem, clearItems, addItem } = CartConsumer();
 
   const onAdd = () => {
     initalNumber === stock
@@ -37,12 +37,12 @@ function ItemCount({ stock, initial, data, styleExtra }) {
       {initalNumber >= 1 ? (
         <Button
           text="Agregar al carrito"
-          onClick={() => handleCart(initalNumber, data)}
+          onClick={() => addItem(initalNumber, data)}
         />
       ) : (
         <Button
           text="Agregar al carrito"
-          onClick={() => handleCart(initalNumber, data)}
+          onClick={() => addItem(initalNumber, data)}
           isDisabled={true}
         />
       )}
