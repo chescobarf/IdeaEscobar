@@ -9,6 +9,7 @@ import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
 import CategoryPage from "../views/CategoryPage";
 import CartProvider from "../context/CartProvider";
+import Dashboard from "../views/Dashboard";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/*" element={<Error />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </CartProvider>
