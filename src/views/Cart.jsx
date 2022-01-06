@@ -112,7 +112,7 @@ function Cart() {
                   to="/checkout"
                   className="bg-pink-500 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded w-full cursor-pointer text-center"
                 >
-                  Pagar
+                  Finalizar Compra
                 </NavLink>
               </div>
             </div>
@@ -121,7 +121,6 @@ function Cart() {
       ) : (
         <div className="grid w-full place-content-center h-96 text-center place-items-center">
           <h1 className="uppercase mb-5 font-semibold">
-            {" "}
             Su carrito esta vacio
           </h1>
           <p className="mb-5">
