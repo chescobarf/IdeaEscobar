@@ -21,7 +21,7 @@ function CategoryPage() {
         content={category.description}
       />
       <Container>
-        <ItemListContainer categoryName={category.name} />
+        <ItemListContainer categoryName={categoryName} />
       </Container>
     </>
   );
