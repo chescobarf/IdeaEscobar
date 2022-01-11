@@ -14,6 +14,7 @@ function Checkout() {
   const [order, setOrder] = useState(null);
   const [orderID, setOrderID] = useState("");
   const [finish, setFinish] = useState(false);
+  const [buyer, setBuyer] = useState({});
 
   useEffect(() => {
     if (finish) {
@@ -44,6 +45,15 @@ function Checkout() {
 
     addItem(data);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setBuyer({
+      ...buyer,
+      [name]: value,
+    });
+  };
+
   return (
     <Container>
       {finish === false ? (
@@ -64,6 +74,7 @@ function Checkout() {
                   </label>
                 </div>
                 <input
+                  onChange={handleChange}
                   type="email"
                   name="email"
                   id="email"
@@ -83,6 +94,7 @@ function Checkout() {
                   </label>
                 </div>
                 <input
+                  onChange={handleChange}
                   type="text"
                   name="name"
                   id="name"
@@ -102,6 +114,7 @@ function Checkout() {
                   </label>
                 </div>
                 <input
+                  onChange={handleChange}
                   type="tel"
                   name="phone"
                   id="phone"
