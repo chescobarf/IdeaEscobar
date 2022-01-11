@@ -32,7 +32,7 @@ function ItemDetailContainer({ id }) {
         setstate({ ...snapshot.data() });
       }
     });
-  });
+  }, []);
   return (
     <div>
       {state ? (

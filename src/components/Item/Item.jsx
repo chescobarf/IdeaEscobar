@@ -30,7 +30,7 @@ function Item({ data }) {
       cardID.removeEventListener("mouseenter", mouseEnterEvents);
       cardID.removeEventListener("mouseleave", mouseLeaveEvents);
     };
-  }, []);
+  }, [data]);
 
   return (
     <div

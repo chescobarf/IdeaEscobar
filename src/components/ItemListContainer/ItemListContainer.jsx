@@ -23,7 +23,7 @@ function ItemListContainer({ categoryName }) {
         setstate(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       });
     }
-  });
+  }, [categoryName]);
 
   return (
     <div>
