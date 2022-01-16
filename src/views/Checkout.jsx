@@ -8,7 +8,8 @@ import subTotal from "../helpers/subTotal";
 import { NavLink } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
 import db from "../service";
-
+import InputForm from "../components/InputForm/InputForm";
+import inputsCheckout from "../constants/checkout";
 function Checkout() {
   const { cart, quantityCart, clearItems } = CartConsumer();
   const [order, setOrder] = useState(null);
@@ -64,66 +65,27 @@ function Checkout() {
               className="cart col-start-1 col-end-4 py-6 px-6
     bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 h-fit font-sans flex flex-col gap-3"
             >
-              <div className="flex flex-col">
-                <div className="flex gap-2 items-center mb-4">
-                  <span className="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 h-9 w-9 grid place-content-center text-white rounded-full ">
-                    1
-                  </span>
-                  <label for="email" className="font-semibold">
-                    Email
-                  </label>
-                </div>
-                <input
-                  onChange={handleChange}
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="mb-2 py-1 px-2"
-                />
-                <p className="text-red-600 text-xs">
-                  Este campo es obligatorio *
-                </p>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex gap-2 items-center mb-4">
-                  <span className="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 h-9 w-9 grid place-content-center text-white rounded-full ">
-                    2
-                  </span>
-                  <label for="name" className="font-semibold">
-                    Nombre
-                  </label>
-                </div>
-                <input
-                  onChange={handleChange}
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="mb-2 py-1 px-2"
-                />
-                <p className="text-red-600 text-xs">
-                  Este campo es obligatorio *
-                </p>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex gap-2 items-center mb-4">
-                  <span className="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 h-9 w-9 grid place-content-center text-white rounded-full ">
-                    3
-                  </span>
-                  <label for="phone" className="font-semibold">
-                    Telefono
-                  </label>
-                </div>
-                <input
-                  onChange={handleChange}
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  className="mb-2 py-1 px-2"
-                />
-                <p className="text-red-600 text-xs">
-                  Este campo es obligatorio *
-                </p>
-              </div>
+              {inputsCheckout.map((e, index) =>
+                e.required ? (
+                  <InputForm
+                    number={index + 1}
+                    text={e.text}
+                    name={e.name}
+                    type={e.type}
+                    handleChange={handleChange}
+                    required
+                  />
+                ) : (
+                  <InputForm
+                    number={index + 1}
+                    text={e.text}
+                    name={e.name}
+                    type={e.type}
+                    handleChange={handleChange}
+                    required
+                  />
+                )
+              )}
             </div>
             <div className="resume ml-4 col-start-4 col-end-6 ">
               <div className="bg-gradient-to-r from-gray-200 to-gray-400 text-gray-800 py-6 px-6 font-semibold">
