@@ -11,7 +11,7 @@ import db from "../service";
 import InputForm from "../components/InputForm/InputForm";
 import inputsCheckout from "../constants/checkout";
 function Checkout() {
-  const { cart, quantityCart, clearItems } = CartConsumer();
+  const { cart, clearItems } = CartConsumer();
   const [order, setOrder] = useState(null);
   const [orderID, setOrderID] = useState("");
   const [finish, setFinish] = useState(false);
@@ -36,11 +36,7 @@ function Checkout() {
   const orderUpdate = () => {
     const data = {};
     data.items = cart;
-    data.buyer = {
-      email: document.querySelector("#email").value,
-      name: document.querySelector("#name").value,
-      phone: document.querySelector("#phone").value,
-    };
+    data.buyer = buyer;
 
     data.total = subTotal(cart);
 
@@ -74,6 +70,7 @@ function Checkout() {
                     type={e.type}
                     handleChange={handleChange}
                     required
+                    key={index}
                   />
                 ) : (
                   <InputForm
@@ -83,6 +80,7 @@ function Checkout() {
                     type={e.type}
                     handleChange={handleChange}
                     required
+                    key={index}
                   />
                 )
               )}
