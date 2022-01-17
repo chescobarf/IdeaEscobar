@@ -24,6 +24,7 @@ function Checkout() {
     } else {
       console.log("Not yet");
     }
+    // eslint-disable-next-line
   }, [finish]);
 
   const addItem = async (data) => {

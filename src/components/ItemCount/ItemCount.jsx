@@ -5,7 +5,7 @@ import { CartConsumer } from "../../context/CartProvider";
 function ItemCount({ stock, initial, data, styleExtra }) {
   const [initalNumber, setInitialNumber] = useState(initial);
 
-  const { removeItem, clearItems, addItem } = CartConsumer();
+  const { addItem } = CartConsumer();
 
   const onAdd = () => {
     initalNumber === stock

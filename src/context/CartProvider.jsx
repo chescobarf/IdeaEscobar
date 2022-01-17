@@ -8,12 +8,6 @@ function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [quantityCart, setQuantityCart] = useState(0);
 
-  const handleCart = (quantity, data) => {
-    data.quantity = quantity;
-    setCart([...cart, data]);
-    setQuantityCart(quantityCart + quantity);
-  };
-
   const addItem = (quantity, data) => {
     //Revisamos si existe el articulo en el carrito
     if (isInCart(data.id)) {
