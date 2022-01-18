@@ -13,9 +13,9 @@ function CategoryShelf({ data }) {
   } else {
     return (
       <>
-        <div className="bg-gray-300 w-full h-full relative inline-block text-center animate-pulse"></div>
-        <div className="bg-gray-300 w-full h-full relative inline-block text-center animate-pulse"></div>
-        <div className="bg-gray-300 w-full h-full relative inline-block text-center animate-pulse"></div>
+        <div className="bg-gray-300 w-full h-80 relative inline-block text-center animate-pulse"></div>
+        <div className="bg-gray-300 w-full h-80 relative inline-block text-center animate-pulse"></div>
+        <div className="bg-gray-300 w-full h-80 relative inline-block text-center animate-pulse"></div>
       </>
     );
   }

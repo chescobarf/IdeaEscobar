@@ -6,7 +6,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../service";
 
 function ItemListContainer({ categoryName }) {
-  const [state, setstate] = useState([]);
+  const [state, setstate] = useState();
 
   useEffect(() => {
     if (categoryName) {
