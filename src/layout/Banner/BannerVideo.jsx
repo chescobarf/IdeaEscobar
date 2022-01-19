@@ -6,9 +6,9 @@ function BannerVideo({ urlContent, position, title, content }) {
       <div className=" w-full h-96 relative">
         <div className="Banner__Picture z-0 h-full">
           <video
-            className="h-full w-full object-cover"
             loop
             autoPlay
+            className="h-full w-full object-cover"
             src={urlContent}
           ></video>
         </div>
