@@ -1,9 +1,9 @@
 import React from "react";
 
-function Button({ text, onClick, isDisabled }) {
+function Button({ text, onClick, isDisabled, extraStyle }) {
   return isDisabled ? (
     <button
-      className="bg-gray-500 text-white font-bold py-2 px-4 rounded cursor-not-allowed"
+      className={`${extraStyle} bg-gray-500 text-white font-bold py-2 px-4 rounded cursor-not-allowed`}
       onClick={onClick}
       disabled
     >
@@ -11,7 +11,7 @@ function Button({ text, onClick, isDisabled }) {
     </button>
   ) : (
     <button
-      className="bg-pink-500 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded "
+      className={`${extraStyle} bg-pink-500 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded `}
       onClick={onClick}
     >
       {text}

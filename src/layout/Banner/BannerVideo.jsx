@@ -1,6 +1,14 @@
 import React from "react";
+import Button from "../../components/Button/Button";
 
-function BannerVideo({ urlContent, position, title, content }) {
+function BannerVideo({
+  urlContent,
+  position,
+  title,
+  content,
+  hasButton,
+  buttonText,
+}) {
   if (position === "left") {
     return (
       <div className=" w-full h-xl relative">
@@ -15,7 +23,8 @@ function BannerVideo({ urlContent, position, title, content }) {
         <div className="Banner__Content absolute z-10 top-36 mx-10 text-white w-1/2 left-0">
           <div className="text-left uppercase">
             <h2 className="font-bold text-4xl mb-10">{title}</h2>
-            <p className="font-medium text-xl">{content}</p>
+            <p className="font-medium text-xl mb-10">{content}</p>
+            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>
       </div>
@@ -35,6 +44,7 @@ function BannerVideo({ urlContent, position, title, content }) {
           <div className="text-right uppercase">
             <h2 className="font-bold text-3xl mb-10">{title}</h2>
             <p className="font-semibold text-base">{content}</p>
+            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>
       </div>
@@ -53,6 +63,7 @@ function BannerVideo({ urlContent, position, title, content }) {
           <div className="text-center uppercase">
             <h2 className="font-bold text-3xl mb-10">{title}</h2>
             <p className="font-semibold text-base">{content}</p>
+            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>
       </div>

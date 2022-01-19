@@ -1,6 +1,16 @@
 import React from "react";
+import Button from "../../components/Button/Button";
 
-function BannerImage({ urlContent, position, title, content }) {
+function BannerImage({
+  urlContent,
+  objectFit,
+  position,
+  title,
+  content,
+  contentStyle,
+  hasButton,
+  buttonText,
+}) {
   if (position === "left") {
     return (
       <div className=" w-full h-96 relative">
@@ -8,13 +18,14 @@ function BannerImage({ urlContent, position, title, content }) {
           <img
             src={urlContent}
             alt="/"
-            className="h-full w-full object-fill filter brightness-50"
+            className={`${objectFit ? objectFit : "object-fit"} h-full w-full`}
           ></img>
         </div>
         <div className="Banner__Content absolute z-10 top-10 mx-6 text-white w-1/2 left-0">
-          <div className="text-left uppercase">
+          <div className={`${contentStyle} text-left uppercase`}>
             <h2 className="font-bold text-3xl mb-10">{title}</h2>
             <p className="font-semibold text-base">{content}</p>
+            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>
       </div>
@@ -27,13 +38,14 @@ function BannerImage({ urlContent, position, title, content }) {
           <img
             src={urlContent}
             alt="/"
-            className="h-full w-full object-fill filter brightness-50"
+            className={`${objectFit ? objectFit : "object-fit"} h-full w-full`}
           ></img>
         </div>
         <div className="Banner__Content absolute z-10 top-10 mx-6 text-white w-1/2 right-0">
-          <div className="text-right uppercase">
+          <div className={`${contentStyle} text-right uppercase`}>
             <h2 className="font-bold text-3xl mb-10">{title}</h2>
             <p className="font-semibold text-base">{content}</p>
+            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>
       </div>
@@ -45,13 +57,14 @@ function BannerImage({ urlContent, position, title, content }) {
           <img
             src={urlContent}
             alt="/"
-            className="h-full w-full object-fill filter brightness-50"
+            className={`${objectFit ? objectFit : "object-fit"} h-full w-full`}
           ></img>
         </div>
-        <div className="Banner__Content absolute z-10 top-10 text-white w-full">
-          <div className="text-center uppercase">
+        <div className="Banner__Content absolute z-10 top-10 w-full">
+          <div className={`${contentStyle} text-center uppercase`}>
             <h2 className="font-bold text-3xl mb-10">{title}</h2>
             <p className="font-semibold text-base">{content}</p>
+            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>
       </div>
