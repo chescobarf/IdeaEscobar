@@ -15,12 +15,14 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "start": "npm run watch:tailwind && react-scripts start",
+    "build": "npm run build:tailwind && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "watch:tailwind": "npx tailwindcss -i src/assets/tailwind.css -o src/assets/main.css",
+    "build:tailwind": "npx tailwindcss -i src/assets/tailwind.css -o src/assets/main.css"
   },
   "eslintConfig": {
     "extends": [
@@ -41,8 +43,6 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "postcss-cli": "^9.0.2",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^3.0.15"
   }
 }
