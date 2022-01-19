@@ -1,12 +1,12 @@
 import React from "react";
 
-function Banner({ urlImage, position, title, content }) {
+function BannerImage({ urlContent, position, title, content }) {
   if (position === "left") {
     return (
       <div className=" w-full h-96 relative">
         <div className="Banner__Picture z-0 h-full">
           <img
-            src={urlImage}
+            src={urlContent}
             alt="/"
             className="h-full w-full object-fill filter brightness-50"
           ></img>
@@ -25,7 +25,7 @@ function Banner({ urlImage, position, title, content }) {
       <div className=" w-full h-96 relative">
         <div className="Banner__Picture z-0 h-full">
           <img
-            src={urlImage}
+            src={urlContent}
             alt="/"
             className="h-full w-full object-fill filter brightness-50"
           ></img>
@@ -43,7 +43,7 @@ function Banner({ urlImage, position, title, content }) {
       <div className=" w-full h-96 relative">
         <div className="Banner__Picture z-0 h-full">
           <img
-            src={urlImage}
+            src={urlContent}
             alt="/"
             className="h-full w-full object-fill filter brightness-50"
           ></img>
@@ -59,4 +59,4 @@ function Banner({ urlImage, position, title, content }) {
   }
 }
 
-export default Banner;
+export default BannerImage;
