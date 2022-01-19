@@ -15,7 +15,7 @@ function CategoryPage() {
   return (
     <>
       <BannerImage
-        urlImage={category.image}
+        urlContent={category.image}
         position="left"
         title={category.name}
         content={category.description}
