@@ -1,41 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../components/Button/Button";
 import { collection, addDoc } from "firebase/firestore";
 import db from "../service";
 
 function Dashboard() {
+  const [form, setForm] = useState({
+    brand: "",
+    genre: "default",
+    img: "",
+    name: "",
+    newPrice: 0,
+    oldPrice: 0,
+    stock: 0,
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const addItem = (data) => {
     addDoc(collection(db, "products"), data);
   };
 
   const handleFormProduct = () => {
-    const data = {};
-    data.brand = document.querySelector("#brand").value;
-    data.genre = document.querySelector("#genre").value;
-    data.img = document.querySelector("#img").value;
-    data.name = document.querySelector("#name").value;
-    data.newPrice = document.querySelector("#newPrice").value;
-    data.oldPrice = document.querySelector("#oldPrice").value;
-    data.stock = document.querySelector("#stock").value;
-    // console.log(data);
-    addItem(data);
+    addItem(form);
     cleanForm();
   };
 
   const cleanForm = () => {
-    document.querySelector("#brand").value = "";
-    document.querySelector("#genre").value = "";
-    document.querySelector("#img").value = "";
-    document.querySelector("#name").value = "";
-    document.querySelector("#newPrice").value = 0;
-    document.querySelector("#oldPrice").value = 0;
-    document.querySelector("#stock").value = 0;
+    setForm({
+      brand: "",
+      genre: "default",
+      img: "",
+      name: "",
+      newPrice: 0,
+      oldPrice: 0,
+      stock: 0,
+    });
   };
 
   return (
     <div className="container mx-auto my-0 h-screen">
       <h2 className="text-xl my-10 text-center">Crear Productos</h2>
-      <div className="flex flex-col">
+      <form className="flex flex-col" onSubmit={handleFormProduct}>
         <div className="flex justify-between mb-8">
           <label className="w-1/3" htmlFor="brand">
             Brand
@@ -45,6 +55,8 @@ function Dashboard() {
             type="text"
             name="brand"
             id="brand"
+            onChange={handleChange}
+            value={form.brand}
           />
         </div>
         <div className="flex justify-between mb-8">
@@ -55,7 +67,12 @@ function Dashboard() {
             name="genre"
             id="genre"
             className="border-2 border-gray-500 border-opacity-80 rounded-md px-4 py-2 w-full bg-transparent"
+            onChange={handleChange}
+            defaultValue={form.genre}
           >
+            <option disabled="disabled" value="default">
+              Seleccione el genero
+            </option>
             <option value="Hombre">Hombre</option>
             <option value="Mujer">Mujer</option>
             <option value="Niños">Niños</option>
@@ -71,6 +88,8 @@ function Dashboard() {
             type="text"
             name="img"
             id="img"
+            onChange={handleChange}
+            value={form.img}
           />
         </div>
         <div className="flex justify-between mb-8">
@@ -82,6 +101,8 @@ function Dashboard() {
             type="text"
             name="name"
             id="name"
+            onChange={handleChange}
+            value={form.name}
           />
         </div>
         <div className="flex justify-between mb-8">
@@ -93,6 +114,8 @@ function Dashboard() {
             type="number"
             name="newPrice"
             id="newPrice"
+            onChange={handleChange}
+            value={form.newPrice}
           />
         </div>
         <div className="flex justify-between mb-8">
@@ -104,6 +127,8 @@ function Dashboard() {
             type="number"
             name="oldPrice"
             id="oldPrice"
+            onChange={handleChange}
+            value={form.oldPrice}
           />
         </div>
         <div className="flex justify-between mb-8">
@@ -115,10 +140,12 @@ function Dashboard() {
             type="number"
             name="stock"
             id="stock"
+            onChange={handleChange}
+            value={form.stock}
           />
         </div>
-        <Button text="Agregar" onClick={handleFormProduct} />
-      </div>
+        <Button text="Agregar" type="submit" />
+      </form>
     </div>
   );
 }
