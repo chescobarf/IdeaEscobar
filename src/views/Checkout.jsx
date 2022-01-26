@@ -18,12 +18,7 @@ function Checkout() {
   const [buyer, setBuyer] = useState({});
 
   useEffect(() => {
-    if (finish) {
-      clearItems();
-      console.log("Clearing....");
-    } else {
-      console.log("Not yet");
-    }
+    clearItems();
     // eslint-disable-next-line
   }, [finish]);
 
