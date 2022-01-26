@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-
+import { toastAddToCart } from "../helpers/toast";
 const CartContext = createContext();
 
 export const CartConsumer = () => useContext(CartContext);
@@ -15,11 +15,13 @@ function CartProvider({ children }) {
       arr.quantity = arr.quantity + quantity;
       setCart([...cart]);
       setQuantityCart(quantityCart + quantity);
+      toastAddToCart();
     } else {
       let newObj = { ...data, quantity: quantity };
       console.log(newObj);
       setCart([...cart, newObj]);
       setQuantityCart(quantityCart + quantity);
+      toastAddToCart();
     }
   };
 

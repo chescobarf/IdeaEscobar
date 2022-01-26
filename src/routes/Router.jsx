@@ -10,12 +10,14 @@ import Footer from "../layout/Footer/Footer";
 import CategoryPage from "../views/CategoryPage";
 import CartProvider from "../context/CartProvider";
 import Dashboard from "../views/Dashboard";
+import { Toaster } from "react-hot-toast";
 
 function Router() {
   return (
     <BrowserRouter>
       <CartProvider>
         <Navbar />
+        <Toaster />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
