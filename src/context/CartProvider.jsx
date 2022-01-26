@@ -18,7 +18,6 @@ function CartProvider({ children }) {
       toastAddToCart();
     } else {
       let newObj = { ...data, quantity: quantity };
-      console.log(newObj);
       setCart([...cart, newObj]);
       setQuantityCart(quantityCart + quantity);
       toastAddToCart();
