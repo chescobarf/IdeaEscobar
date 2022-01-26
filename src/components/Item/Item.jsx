@@ -61,7 +61,7 @@ function Item({ data }) {
         "
       >
         <ItemCount
-          stock={100}
+          stock={data.stock}
           initial={0}
           data={data}
           styleExtra={"text-white"}
