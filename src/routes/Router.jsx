@@ -11,22 +11,25 @@ import CategoryPage from "../views/CategoryPage";
 import CartProvider from "../context/CartProvider";
 import Dashboard from "../views/Dashboard";
 import { Toaster } from "react-hot-toast";
-
+import FilterProvider from "../context/FilterProvider";
 function Router() {
   return (
     <BrowserRouter>
       <CartProvider>
         <Navbar />
         <Toaster />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="/category/:categoryName" element={<CategoryPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/*" element={<Error />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
+        <FilterProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/category/:categoryName" element={<CategoryPage />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/*" element={<Error />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </FilterProvider>
+
         <Footer />
       </CartProvider>
     </BrowserRouter>

@@ -4,6 +4,7 @@ import NoProducts from "../../views/NoProducts";
 import Loading from "../Loading/Loading";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../service";
+import Filter from "../Filter/Filter";
 
 function ItemListContainer({ categoryName }) {
   const [state, setstate] = useState();
@@ -29,9 +30,12 @@ function ItemListContainer({ categoryName }) {
     <div>
       {state ? (
         state.length !== 0 ? (
-          <div className="w-full text-center mt-4 mb-4">
-            <ItemList items={state} />
-          </div>
+          <>
+            <Filter categoryFilter={categoryName ? categoryName : undefined} />
+            <div className="w-full text-center mt-4 mb-4">
+              <ItemList items={state} />
+            </div>
+          </>
         ) : (
           <NoProducts />
         )
