@@ -4,7 +4,6 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 import CategoriesShelfs from "../components/CategoriesShelfs/CategoriesShelfs";
 import BannerVideo from "../layout/Banner/BannerVideo";
 import BannerImage from "../layout/Banner/BannerImage";
-import Filter from "../components/Filter/Filter";
 
 function Home() {
   return (
@@ -27,7 +26,6 @@ function Home() {
       />
       <Container>
         <CategoriesShelfs />
-        <Filter />
         <ItemListContainer />
       </Container>
     </>
