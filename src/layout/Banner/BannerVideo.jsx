@@ -16,6 +16,7 @@ function BannerVideo({
           <video
             loop
             autoPlay
+            muted
             className="h-full w-full object-cover object-top"
             src={urlContent}
           ></video>
