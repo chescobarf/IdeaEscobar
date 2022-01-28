@@ -10,8 +10,29 @@ function FilterProvider({ children }) {
     { id: 2, name: "Precio Menor a Mayor" },
   ];
   const [showFilters, setShowFilters] = useState(false);
-  const [actualFilter, setActualFilter] = useState("Ordenar Por");
+  const [actualFilter, setActualFilter] = useState(filters[0].name);
 
+  const handleSort = (data) => {
+    switch (actualFilter) {
+      case filters[1].name:
+        data.sort((a, b) => {
+          return b.newPrice - a.newPrice;
+        });
+        break;
+
+      case filters[2].name:
+        data.sort((a, b) => {
+          return a.newPrice - b.newPrice;
+        });
+        break;
+
+      case filters[0].name:
+        return data;
+
+      default:
+        return data;
+    }
+  };
   const handleFilter = (e) => {
     handleShow();
     setActualFilter(e);
@@ -28,6 +49,7 @@ function FilterProvider({ children }) {
         actualFilter,
         handleFilter,
         handleShow,
+        handleSort,
       }}
     >
       {children}

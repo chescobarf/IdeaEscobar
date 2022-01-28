@@ -8,7 +8,6 @@ import Filter from "../Filter/Filter";
 
 function ItemListContainer({ categoryName }) {
   const [state, setstate] = useState();
-
   useEffect(() => {
     if (categoryName) {
       const q = query(
