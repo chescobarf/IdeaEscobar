@@ -7,7 +7,7 @@ function InputForm({ number, text, name, type, handleChange, required }) {
         <span className="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 h-9 w-9 grid place-content-center text-white rounded-full ">
           {number}
         </span>
-        <label for={name} className="font-semibold">
+        <label htmlFor={name} className="font-semibold">
           {text}
         </label>
       </div>
