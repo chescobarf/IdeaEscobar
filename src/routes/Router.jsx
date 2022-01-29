@@ -12,11 +12,13 @@ import CartProvider from "../context/CartProvider";
 import Dashboard from "../views/Dashboard";
 import { Toaster } from "react-hot-toast";
 import FilterProvider from "../context/FilterProvider";
+import NavbarV2 from "../layout/Navbar/NavbarV2";
 function Router() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <Navbar />
+        {/* <Navbar /> */}
+        <NavbarV2 />
         <Toaster />
         <FilterProvider>
           <Routes>
