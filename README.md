@@ -1,6 +1,9 @@
 # Proyect Ecommerce to Course of CoderHouse
 
+![download](https://user-images.githubusercontent.com/44533046/151686092-62f588e4-09cc-49cf-8bd8-a50b6e057b6d.gif)
+
 Live project: https://sneakerstime.netlify.app/
+
 
 ![image](https://user-images.githubusercontent.com/44533046/151685896-c632dacb-d957-4b54-9117-381d192ee867.png)
 
