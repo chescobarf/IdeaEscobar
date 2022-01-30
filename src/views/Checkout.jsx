@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../layout/Container/Container";
 import { IconContext } from "react-icons";
 import { RiBarcodeBoxLine, RiTruckLine } from "react-icons/ri";
@@ -18,6 +18,13 @@ function Checkout() {
   const [finish, setFinish] = useState(false);
   const [buyer, setBuyer] = useState({});
 
+  useEffect(() => {
+    if (finish) {
+      clearItems();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finish]);
+
   const addItem = async (data) => {
     const orderRef = await addDoc(collection(db, "orders"), data);
     setOrder(data);
@@ -33,7 +40,6 @@ function Checkout() {
     data.total = subTotal(cart);
 
     addItem(data);
-    clearItems();
   };
 
   const handleChange = (e) => {
@@ -161,10 +167,12 @@ function Checkout() {
                   <th className="pb-3">Valor</th>
                 </tr>
               </thead>
-              <span className="opacity-0">.</span>
               <tbody>
                 {order.items.map((e) => (
-                  <tr className="text-center border-b-2 border-gray-300">
+                  <tr
+                    className="text-center border-b-2 border-gray-300"
+                    key={e.id}
+                  >
                     <td className="pb-5">
                       <img src={e.img} alt={e.id} className="w-20 md:w-32" />
                     </td>
