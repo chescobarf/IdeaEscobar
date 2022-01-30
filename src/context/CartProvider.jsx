@@ -9,7 +9,6 @@ function CartProvider({ children }) {
   const [quantityCart, setQuantityCart] = useState(0);
 
   const addItem = (quantity, data) => {
-    //Revisamos si existe el articulo en el carrito
     if (isInCart(data.id)) {
       let arr = cart.find((i) => i.id === data.id);
       arr.quantity = arr.quantity + quantity;
@@ -25,7 +24,6 @@ function CartProvider({ children }) {
   };
 
   const removeItem = (itemID) => {
-    //Filter de la data y quitarla de carrito
     const itemToDelete = cart.find((e) => e.id === itemID);
     const newArray = cart.filter((item) => item.id !== itemID);
     setCart(newArray);

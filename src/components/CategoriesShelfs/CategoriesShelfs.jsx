@@ -23,9 +23,6 @@ function CategoriesShelfs() {
           return <CategoryShelf data={e} key={e.id} />;
         })}
       </div>
-      //   <div className="w-full flex justify-center gap-4 my-4 h-">
-      //     <CategoryShelf />
-      //   </div>
     );
   } else {
     return (

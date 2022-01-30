@@ -17,10 +17,5 @@ export const categories = [
         image: "https://picsum.photos/id/838/1500/500/",
         description: "lorem ipsum lorem ipsum lorem ipsum"
     },
-    // {
-    //     id: 4,
-    //     name: "Marcas",
-    //     image: "https://picsum.photos/id/690/1500/500/",
-    //     description: "lorem ipsum lorem ipsum lorem ipsum"
-    // }
+
 ]
