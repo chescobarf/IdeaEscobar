@@ -9,7 +9,7 @@ import CartResume from "../components/Cart/CartResume/CartResume";
 function Cart() {
   const { clearItems, removeItem, cart, quantityCart } = CartConsumer();
   return (
-    <Container>
+    <Container extraStyle="mt-14">
       {cart.length > 0 ? (
         <CartLayout>
           <CartProducts

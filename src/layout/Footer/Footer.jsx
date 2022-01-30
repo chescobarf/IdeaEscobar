@@ -4,7 +4,7 @@ import { RiGithubFill, RiLinkedinBoxFill } from "react-icons/ri";
 
 function Footer() {
   return (
-    <footer className="footer w-full bg-gray-900 text-white grid grid-cols-2 py-3 px-10 justify-items-center">
+    <footer className="footer w-full bg-gray-900 text-white grid grid-cols-2 py-3 px-3 md:px-10 justify-items-end md:justify-items-center items-center">
       <p>
         Created by: &nbsp;
         <a href="https://christian-escobar.netlify.app/">

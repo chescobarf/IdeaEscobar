@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import subTotal from "../../../helpers/subTotal";
 function CartResume({ cart }) {
   return (
-    <div className="resume ml-4 col-start-4 col-end-6 ">
+    <div className="resume md:ml-4 md:col-start-4 md:col-end-6 ">
       <div className="bg-gradient-to-r from-gray-200 to-gray-400 text-gray-800 py-6 px-6 font-semibold">
         <div className="title text-center border-b-2 border-gray-200 pb-3">
           <h1>Resumen de Compra</h1>

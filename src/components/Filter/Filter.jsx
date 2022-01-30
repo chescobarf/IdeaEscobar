@@ -8,7 +8,7 @@ function Filter({ categoryFilter }) {
 
   return (
     <div className="flex justify-between items-center mb-5 uppercase p-2.5 border-b-2 border-purple-300 relative">
-      <h2 className="text-3xl italic font-medium">
+      <h2 className="text-xl md:text-3xl italic font-medium">
         {categoryFilter ? `Sneakers de ${categoryFilter}` : `Sneakers`}
       </h2>
       <div className="orderBy">

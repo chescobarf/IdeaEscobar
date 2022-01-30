@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Container from "../layout/Container/Container";
 import { IconContext } from "react-icons";
 import { RiBarcodeBoxLine, RiTruckLine } from "react-icons/ri";
@@ -10,17 +10,13 @@ import { collection, addDoc } from "firebase/firestore";
 import db from "../service";
 import InputForm from "../components/InputForm/InputForm";
 import inputsCheckout from "../constants/checkout";
+
 function Checkout() {
   const { cart, clearItems } = CartConsumer();
   const [order, setOrder] = useState(null);
   const [orderID, setOrderID] = useState("");
   const [finish, setFinish] = useState(false);
   const [buyer, setBuyer] = useState({});
-
-  useEffect(() => {
-    clearItems();
-    // eslint-disable-next-line
-  }, [finish]);
 
   const addItem = async (data) => {
     const orderRef = await addDoc(collection(db, "orders"), data);
@@ -37,6 +33,7 @@ function Checkout() {
     data.total = subTotal(cart);
 
     addItem(data);
+    clearItems();
   };
 
   const handleChange = (e) => {
@@ -48,13 +45,13 @@ function Checkout() {
   };
 
   return (
-    <Container>
+    <Container extraStyle="mt-14">
       {finish === false ? (
         cart.length > 0 ? (
-          <div className="grid w-full my-4 font-mono h-screen">
+          <div className="grid w-full my-4 font-mono md:h-screen">
             <div
               id="cart"
-              className="cart col-start-1 col-end-4 py-6 px-6
+              className="cart md:col-start-1 md:col-end-4 py-6 px-6
     bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 h-fit font-sans flex flex-col gap-3"
             >
               {inputsCheckout.map((e, index) =>
@@ -81,7 +78,7 @@ function Checkout() {
                 )
               )}
             </div>
-            <div className="resume ml-4 col-start-4 col-end-6 ">
+            <div className="resume md:ml-4 md:col-start-4 md:col-end-6 ">
               <div className="bg-gradient-to-r from-gray-200 to-gray-400 text-gray-800 py-6 px-6 font-semibold">
                 <div className="title text-center border-b-2 border-gray-200 pb-3">
                   <h1>Resumen de Compra</h1>
@@ -169,7 +166,7 @@ function Checkout() {
                 {order.items.map((e) => (
                   <tr className="text-center border-b-2 border-gray-300">
                     <td className="pb-5">
-                      <img src={e.img} alt={e.id} className="w-32" />
+                      <img src={e.img} alt={e.id} className="w-20 md:w-32" />
                     </td>
                     <td className="pb-5 text-left">{e.name}</td>
                     <td className="pb-5">{e.quantity}</td>

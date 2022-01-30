@@ -19,7 +19,7 @@ function ItemDetailContainer({ id }) {
   return (
     <div>
       {state ? (
-        <div className="w-full text-center mt-0 mb-0">
+        <div className="w-full text-center mt-14 lg:mt-0 mb-0">
           <ItemDetail data={state} />
         </div>
       ) : (

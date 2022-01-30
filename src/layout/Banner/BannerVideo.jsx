@@ -21,10 +21,10 @@ function BannerVideo({
             src={urlContent}
           ></video>
         </div>
-        <div className="Banner__Content absolute z-10 top-36 mx-10 text-white w-1/2 left-0">
+        <div className="Banner__Content absolute z-10 top-36 mx-10 text-white w-4/5 md:w-1/2 left-0">
           <div className="text-left uppercase">
             <h2 className="font-bold text-4xl mb-10">{title}</h2>
-            <p className="font-medium text-xl mb-10">{content}</p>
+            <p className="font-medium text-lg md:text-xl mb-10">{content}</p>
             {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
           </div>
         </div>

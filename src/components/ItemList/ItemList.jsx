@@ -9,7 +9,7 @@ function ItemList({ items }) {
   if (items) {
     handleSort(items);
     return (
-      <div className="grid w-full grid-cols-3 gap-4">
+      <div className="grid w-full grid-cols-2 md:grid-cols-3 gap-4">
         {items.map((item) => (
           <Item key={item.id} data={item} />
         ))}

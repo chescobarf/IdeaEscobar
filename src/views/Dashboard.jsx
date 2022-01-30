@@ -25,7 +25,8 @@ function Dashboard() {
     addDoc(collection(db, "products"), data);
   };
 
-  const handleFormProduct = () => {
+  const handleFormProduct = (e) => {
+    e.preventDefault();
     addItem(form);
     cleanForm();
   };

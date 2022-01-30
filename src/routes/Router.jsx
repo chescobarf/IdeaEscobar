@@ -5,7 +5,6 @@ import ProductDetailPage from "../views/ProductDetailPage";
 import Error from "../views/Error";
 import Cart from "../views/Cart";
 import Checkout from "../views/Checkout";
-import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
 import CategoryPage from "../views/CategoryPage";
 import CartProvider from "../context/CartProvider";

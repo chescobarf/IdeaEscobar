@@ -18,7 +18,7 @@ function CategoriesShelfs() {
 
   if (categories) {
     return (
-      <div className="w-full flex justify-center gap-4 my-4">
+      <div className="w-full flex justify-center gap-4 my-4 flex-col md:flex-row">
         {categories.map((e) => {
           return <CategoryShelf data={e} key={e.id} />;
         })}
@@ -29,7 +29,7 @@ function CategoriesShelfs() {
     );
   } else {
     return (
-      <div className="w-full flex justify-center gap-4 my-4 h-">
+      <div className="w-full flex justify-center gap-4 my-4 flex-col md:flex-row">
         <CategoryShelf />
       </div>
     );
