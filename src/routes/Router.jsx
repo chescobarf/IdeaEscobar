@@ -12,11 +12,11 @@ import Dashboard from "../views/Dashboard";
 import { Toaster } from "react-hot-toast";
 import FilterProvider from "../context/FilterProvider";
 import NavbarV2 from "../layout/Navbar/NavbarV2";
+import GoToTop from "../components/GoToTop/GoToTop";
 function Router() {
   return (
     <BrowserRouter>
       <CartProvider>
-        {/* <Navbar /> */}
         <NavbarV2 />
         <Toaster />
         <FilterProvider>
@@ -30,7 +30,7 @@ function Router() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </FilterProvider>
-
+        <GoToTop />
         <Footer />
       </CartProvider>
     </BrowserRouter>

@@ -6,7 +6,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../service";
 import Filter from "../Filter/Filter";
 
-function ItemListContainer({ categoryName }) {
+function ItemListContainer({ categoryName, id }) {
   const [state, setstate] = useState();
   useEffect(() => {
     if (categoryName) {
@@ -26,7 +26,7 @@ function ItemListContainer({ categoryName }) {
   }, [categoryName]);
 
   return (
-    <div>
+    <div id={id}>
       {state ? (
         state.length !== 0 ? (
           <>

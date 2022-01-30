@@ -23,10 +23,11 @@ function Home() {
         contentStyle="text-black"
         hasButton
         buttonText="Ir a comprar"
+        anchor="catalog"
       />
       <Container>
         <CategoriesShelfs />
-        <ItemListContainer />
+        <ItemListContainer id="catalog" />
       </Container>
     </>
   );

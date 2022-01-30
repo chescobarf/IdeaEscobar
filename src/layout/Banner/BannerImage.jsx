@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../components/Button/Button";
+import { HashLink } from "react-router-hash-link";
 
 function BannerImage({
   urlContent,
@@ -10,6 +11,7 @@ function BannerImage({
   contentStyle,
   hasButton,
   buttonText,
+  anchor,
 }) {
   if (position === "left") {
     return (
@@ -66,7 +68,11 @@ function BannerImage({
           <div className={`${contentStyle} text-center uppercase`}>
             <h2 className="font-bold text-3xl mb-10">{title}</h2>
             <p className="font-semibold text-sm md:text-base">{content}</p>
-            {hasButton ? <Button text={buttonText} extraStyle="mt-10" /> : null}
+            {hasButton ? (
+              <HashLink smooth to={`#${anchor}`}>
+                <Button text={buttonText} extraStyle="mt-10" />
+              </HashLink>
+            ) : null}
           </div>
         </div>
       </div>
