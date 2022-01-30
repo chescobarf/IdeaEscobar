@@ -40,6 +40,7 @@ export default function NavbarV2() {
                     <NavLink
                       className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75 "
                       to={`category/${category.name}`}
+                      onClick={() => setNavbarOpen(!navbarOpen)}
                     >
                       <span className="lg:ml-2">{category.name}</span>
                     </NavLink>
@@ -50,6 +51,7 @@ export default function NavbarV2() {
                 <NavLink
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                   to="/cart"
+                  onClick={() => setNavbarOpen(!navbarOpen)}
                 >
                   <div className="flex items-center">
                     <CartWidget />
