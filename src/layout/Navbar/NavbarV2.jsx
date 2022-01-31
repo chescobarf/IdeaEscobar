@@ -7,7 +7,7 @@ import { CartConsumer } from "../../context/CartProvider";
 
 export default function NavbarV2() {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const { quantityCart } = CartConsumer();
+  const { quantityProducts } = CartConsumer();
 
   return (
     <>
@@ -56,7 +56,7 @@ export default function NavbarV2() {
                   <div className="flex items-center">
                     <CartWidget />
                     <span className="text-lg font-semibold text-white">
-                      {quantityCart}
+                      {quantityProducts}
                     </span>
                   </div>
                 </NavLink>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import Stock from "../Stock/Stock";
 
 function Item({ data }) {
   useEffect(() => {
@@ -40,7 +40,11 @@ function Item({ data }) {
     border-2 
     border-transparent 
     relative
-    hover:border-pink-400"
+    hover:border-pink-400
+    flex
+    flex-col
+    justify-between
+    "
     >
       <div
         className="
@@ -60,12 +64,6 @@ function Item({ data }) {
         transition-opacity
         "
       >
-        <ItemCount
-          stock={data.stock}
-          initial={0}
-          data={data}
-          styleExtra={"text-white"}
-        />
         <Link to={`/product/${data.id}`}>
           <button className="bg-pink-500 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded w-full">
             Ir a detalle
@@ -73,16 +71,21 @@ function Item({ data }) {
         </Link>
       </div>
       <img className="image__product w-full" src={data.img} alt="" />
-      <div className="contentProduct px-2">
+      <div className="contentProduct px-2 flex flex-col h-full justify-between">
         <p className="text-gray-600 my-2">
           {data.brand} | {data.genre}
         </p>
         <p className="text-black-600 font-medium">{data.name}</p>
-        <div className="precios flex gap-2 items-center">
-          <span className="text-black-400 text-sm line-through">
-            ${data.oldPrice}
-          </span>
-          <span className="text-purple-800 font-medium">${data.newPrice}</span>
+        <div className="flex md:flex-row flex-col justify-between items-baseline">
+          <div className="precios flex gap-2 items-center">
+            <span className="text-black-400 text-sm line-through">
+              ${data.oldPrice}
+            </span>
+            <span className="text-purple-800 font-medium">
+              ${data.newPrice}
+            </span>
+          </div>
+          <Stock data={data.stock} extraStyle="md:text-base text-sm" />
         </div>
       </div>
     </div>

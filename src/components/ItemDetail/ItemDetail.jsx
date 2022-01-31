@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import Stock from "../Stock/Stock";
 
 function ItemDetail({ data }) {
   return (
@@ -37,7 +38,8 @@ function ItemDetail({ data }) {
               ${data.newPrice}
             </h3>
           </div>
-          <ItemCount stock={100} initial={0} data={data} />
+          <ItemCount stock={data.stock} initial={0} data={data} />
+          <Stock data={data.stock} extraStyle="font-extrabold" />
         </div>
       </div>
     </>

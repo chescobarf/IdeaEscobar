@@ -11,7 +11,7 @@ function ItemDetailContainer({ id }) {
     const productRef = doc(db, "products", id);
     getDoc(productRef).then((snapshot) => {
       if (snapshot.exists()) {
-        setstate({ ...snapshot.data() });
+        setstate({ ...snapshot.data(), id: id });
       }
     });
     // eslint-disable-next-line

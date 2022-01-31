@@ -7,18 +7,20 @@ export const CartConsumer = () => useContext(CartContext);
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [quantityCart, setQuantityCart] = useState(0);
-
+  const [quantityProducts, setQuantityProducts] = useState(0);
   const addItem = (quantity, data) => {
     if (isInCart(data.id)) {
       let arr = cart.find((i) => i.id === data.id);
       arr.quantity = arr.quantity + quantity;
       setCart([...cart]);
       setQuantityCart(quantityCart + quantity);
+      setQuantityProducts(quantityProducts);
       toastAddToCart();
     } else {
       let newObj = { ...data, quantity: quantity };
       setCart([...cart, newObj]);
       setQuantityCart(quantityCart + quantity);
+      setQuantityProducts(quantityProducts + 1);
       toastAddToCart();
     }
   };
@@ -28,11 +30,13 @@ function CartProvider({ children }) {
     const newArray = cart.filter((item) => item.id !== itemID);
     setCart(newArray);
     setQuantityCart(quantityCart - itemToDelete.quantity);
+    setQuantityProducts(quantityProducts - 1);
   };
 
   const clearItems = () => {
     setCart([]);
     setQuantityCart(0);
+    setQuantityProducts(0);
   };
 
   const isInCart = (itemID) => cart.some((product) => product.id === itemID);
@@ -42,6 +46,7 @@ function CartProvider({ children }) {
       value={{
         cart,
         quantityCart,
+        quantityProducts,
         addItem,
         removeItem,
         clearItems,
