@@ -10,6 +10,7 @@ import { collection, addDoc } from "firebase/firestore";
 import db from "../service";
 import InputForm from "../components/InputForm/InputForm";
 import inputsCheckout from "../constants/checkout";
+import Button from "../components/Button/Button";
 
 function Checkout() {
   const { cart, clearItems } = CartConsumer();
@@ -17,6 +18,7 @@ function Checkout() {
   const [orderID, setOrderID] = useState("");
   const [finish, setFinish] = useState(false);
   const [buyer, setBuyer] = useState({});
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (finish) {
@@ -24,6 +26,11 @@ function Checkout() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finish]);
+
+  useEffect(() => {
+    validateForm() ? setEnabled(true) : setEnabled(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [buyer]);
 
   const addItem = async (data) => {
     const orderRef = await addDoc(collection(db, "orders"), data);
@@ -48,6 +55,19 @@ function Checkout() {
       ...buyer,
       [name]: value,
     });
+  };
+
+  const validateForm = () => {
+    let values = Object.values(buyer);
+    if (Object.keys(buyer).length === inputsCheckout.length) {
+      if (values.some((e) => e === "")) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -116,12 +136,19 @@ function Checkout() {
                   <p id="subTotalCart">${subTotal(cart)}</p>
                 </div>
                 <div className="total border-b-2 border-gray-200 py-3 flex justify-center ">
-                  <button
+                  {/* <button
                     className="bg-pink-500 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded w-full cursor-pointer text-center"
                     onClick={() => orderUpdate()}
+                    disabled={!enabled}
                   >
                     Pagar
-                  </button>
+                  </button> */}
+                  <Button
+                    onClick={() => orderUpdate()}
+                    text="Pagar"
+                    isDisabled={!enabled}
+                    extraStyle={"w-full"}
+                  />
                 </div>
               </div>
             </div>
